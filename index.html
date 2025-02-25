@@ -13,18 +13,18 @@
     header {
       color: #333;
       font-family: 'Times New Roman', sans-serif;
-      margin-top: 20px;
-      padding: 1%;
+      padding-left: 1%;
     }
+
     p {
       font-size: 18px;
-      line-height: 1.6;
-      margin: 10px 0;
+      padding-left: 1%;
+      padding-right: 1%;
     }
+
     main, aside, article {
       display: flex;
       flex-wrap: wrap;
-      padding: 1%;
     }
 
     section, blockquote {
@@ -34,52 +34,11 @@
       min-width: 500px;
     }
 
-    @media (min-width: 768px) {
-      section { flex: 1 0; }
-      blockquote { flex: 0 1; }
-    }
-
     body, html {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
-
-    /* Styling for Met API Data */
-    .reviews {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        /* Define rows that child grids can inherit via subgrid */
-        grid-auto-rows: minmax(100px, auto);
-        gap: 20px;
-        padding: 20px;
-        margin: 20px;
-        box-sizing: border-box;
-      }
-      .review {
-        background-color: #f8f8f8;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        display: grid;
-        grid-template-rows: subgrid;
-        gap: 10px;
-      }
-      .review h3 {
-        padding: 10px;
-        margin-top: 0;
-      }
-      .review p {
-        padding: 10px;
-        font-size: 16px;
-        line-height: 1.5;
-      }
-      .review .author {
-        display: block;
-        margin-top: 65px;
-        font-style: italic;
-        text-align: right;
-      }
 
     /* Styling for Met API Data */
     #metData {
@@ -89,7 +48,8 @@
       background-color: #f9f9f9;
       width: 50%;
       margin: 10px auto;
-      font-family: Arial, sans-serif;
+      justify-content: right;
+      align-items: right;
     }
     #metData h2 {
       font-size: 15px;
@@ -109,6 +69,47 @@
       font-weight: bold;
     }
     .object-link:hover { text-decoration: underline; }
+
+    /* Photogrid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+      gap: 15px; /* Space between images */
+      padding: 1%;
+      margin-bottom: 5px;
+    }
+    
+    .photo-item {
+      text-align: center; /* Center the text */
+    }
+    
+    .photo-grid img {
+      width: 450px; /* Make sure the image fills its container */
+      height: 300px; /* Maintain aspect ratio */
+      object-fit: cover; /* Crop if necessary */
+      border-radius: 5px;
+    }
+    
+    .caption {
+      font-size: 14px;
+      color: #555; /* Light gray for caption text */
+    }
+
+    @media (min-width: 768px) {
+      section { flex: 1 0; }
+      blockquote { flex: 0 1; }
+    }
+
+    @media (max-width: 480px) {
+      .photo-grid {
+        grid-template-columns: 1fr; /* 1 image per row */
+      }
+    
+      .photo-grid img {
+        width: 100%; /* Ensure the image takes up full width */
+      }
+    }
+    
   </style>
 
 
@@ -122,68 +123,112 @@
 
   <main>
     <article>
-      <p>Ang Lee, born on October 23, 1954, in Taiwan, is a groundbreaking director. With blockbusters like <i>Sense and Sensibility</i>,
-         the original <i>Hulk</i>, and <i>Life of Pi</i>, he has cemented himself as a prodigal filmmaker of modern cinema.</p>
-      <p>The movies I especially enjoy are the more "indie", "under-the-radar" ones like <i>The Ice Storm</i> and <i>Brokeback Mountain</i> that 
-         explore complex themes like identity and family dynamics in the public and private sphere. The latter film won him the Academy Award for Best Director.
-         Even though he is an international filmmaker, he has a profound understanding of American culture, which allows him to depict American stories with 
-         honest cadency and innovative camerawork. He has an uncanny way of blending technical skills with emotional depth.</p>
+      <p>
+        Paul Rudolph (1918-1997) was a visionary American architect known for his bold, modernist designs and innovative use of materials, particularly reinforced concrete. 
+        A leading figure in the <i>Brutalist</i> movement, Rudolph gained fame as the chair of Yale's School of Architecture and for designing the iconic Yale Art & Architecture Building. 
+        His work is characterized by dramatic sculptural forms, complex spatial arrangements, and unique interpretation of light and texture. <br><br>
+        
+        One of his most iconic works, the Yale Art and Architecture Building (1963), stands as a defining example of Brutalism, with its rugged concrete surfaces and interlocking spaces.
+        Rudolph’s later projects, such as the Government Service Center in Boston and the Burroughs Wellcome Headquarters in North Carolina, further demonstrated his mastery of material and form, 
+        creating visually striking yet functional spaces. <br><br>
+      
+        Some of his other notable projects include the Government Service Center in Boston and Milam Residence in Florida.
+        Despite controversy over his raw, expressive style and Brutalism falling out of favor in the late 20th century, Rudolph's impact is ostensibly groundbreaking and influential, inspiring generations of designers succeeding him.
+      </p>      
       </article>
 
     <section>
-      <h3>Magnum Opus?</h3>
-      <p>According to me, Lee's masterpiece is <i>Lust, Caution</i>, an adaption of Eileen Chang's poignant espionage novel set 
-         during the Japanese occupation of China. It stars Tang Wei and Tony Leung, novice actors who quickly grew to prominence. 
-         Every time I think about this movie, the background score, Wong Chia Chi's Theme, haunts me. Attempting to pigeonhole Lee is 
-         an atrocious crime - his work spans multiude of genres and cultures. Even the renowned film critic, Roger Ebert, struggled to 
-         find the connection in Lee's filmography:</p>
+      <h2>LOMEX</h2>
+      <p style="padding:0%;">Collaborating with Robert Moses, Paul Rudolph envisioned an illustrious scope for Lower Manhattan Expressway (LOMEX) in the 1940s. He created detailed multi-level megastructures that 
+        with a 10-lane elevated expressway connecting the Williamsburg and Manhattan Bridges to the Holland Tunnel. His goal was to integrate <i>residential</i>, <i>commercial</i>, and <i>transportation</i> elements. His radical proposal envisioned the expressway as part of a self-contained urban complex with pedestrian
+        walkways, housing, and green spaces, attempting to blend infrastructure with the city rather than divide it.
+      </p>
+      <p style="padding:0%;">Rudolph’s version of LOMEX, though never built, reflected his broader architectural vision—layered, dynamic spaces that sought to humanize large-scale urban systems. His ambitious ideas for 
+        multi-use, high-density environments, which complimented Moses’ often rigid, car-dominated approach to city planning. The project was heavily backed by Moses and received federal funding approval, but it faced growing
+        resistance from local residents, preservationists, and activists, including urbanist Jane Jacobs (see quote below.)
+      </p>
+      <p style="padding:0%;">Today, SoHo and surrounding areas, which would have been drastically altered or erased, thrive as cultural and commercial hubs, standing as a testament to the successful resistance against the expressway’s construction.
+      </p>
+      <blockquote>
+        <p><i>"The architects, planners—and businessmen–are seized with dreams of order, and they have become fascinated with scale models and bird’s-eye views. This is a vicarious way to deal 
+          with reality, and it is, unhappily, symptomatic of a design philosophy now dominant: buildings come first, for the goal is to remake the city to fit an abstract concept of what, logically, 
+          it should be."</i> – Jane Jacobs (1916-2006), urban activist</p>
+      </blockquote>
     </section>
 
-    <blockquote>
-      <p><i>"Failing to find the connecting link between such Ang Lee films as “Sense And Sensibility,” “Brokeback Mountain” and “Hulk,” 
-         I was quickly corrected by readers who said, obviously, all his films are about people trying to realize their essential natures 
-         despite the constraints of society. Readers, you were right."</i> – Roger Ebert</p>
-    </blockquote>
-
     <!-- Youtube Video Section -->
-    <aside>
-       <h2 style="margin-bottom: 20px;">Featured Clip</h2>
-      <p>Check out this insightful interview:</p>
-      <iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/78hV6mapXnE"  
-        title="YouTube video player" 
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
+    <section>
+       <h2>Critique of LOMEX</h2>
+       <p style="margin-bottom: 2%; padding: 0%;">Daan van der Zwaag, a Cornell Tech student, critiques Rudolph's LOMEX proposal</p>
+      <iframe
+          width="900" 
+          height="420" 
+          src="https://www.youtube.com/embed/YxGJbSFrU2Q?start=1047" 
+          title="YouTube video player" 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
       </iframe>
-    </aside>
+    </section>
   </main>
 
-  <div id="metData">
-    <h2>Featured Artwork from The Met</h2>
-    <p>Loading artwork data...</p>
+  <section>
+  <h2 style="margin-bottom: 0px"><strong>Image Gallery</strong></h2>
+  <p class="caption"; style="padding-left:0% ;padding-top:0%; padding-bottom:0%">Images taken from: <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank">Paul Rudolph's Wikipedia</a>
+  </p>
+  <div class="photo-grid">
+    <div class="photo-item">
+      <img src="yale.jpg" alt="Image 1">
+      <p class="caption">Yale Art and Architecture Building (1963)</p>
+    </div>
+    <div class="photo-item">
+      <img src="milam.jpg" alt="Image 2">
+      <p class="caption">Milam Residence in Florida (1961)</p>
+    </div>
+    <div class="photo-item">
+      <img src="boston.jpg" alt="Image 3">
+      <p class="caption">First Church in Boston (1972)</p>
+    </div>
+    <div class="photo-item">
+      <img src="nc.jpg" alt="Image 4">
+      <p class="caption">Burroughs Wellcome headquarters (1972–2021), Research Triangle Park, North Carolina</p>
+    </div>
   </div>
 
-  <!-- Review List Section -->
-  <section class="reviews">
-    <div class="review">
-      <h3>Stunning Visuals</h3>
-      <p>The film captures breathtaking imagery that truly immerses you in its world.</p>
-      <span class="author">- Film Enthusiast</span>
+  <div class="photo-grid">
+    <div class="photo-item">
+      <img src="lomex.jpg" alt="Image 1">
+      <p class="caption">Lomex (1967)</p>
     </div>
-    <div class="review">
-      <h3>Powerful Storytelling</h3>
-      <p>An emotional narrative that tugs at the heartstrings while provoking thought.</p>
-      <span class="author">- Cinema Lover</span>
+    <div class="photo-item">
+      <img src="lomex2.jpg" alt="Image 2">
+      <p class="caption">Lomex (1967)</p>
     </div>
-    <div class="review">
-      <h3>Masterful Direction</h3>
-      <p>Ang Lee’s direction is nothing short of genius—each frame is carefully composed.</p>
-      <span class="author">- Movie Critic</span>
+    <div class="photo-item">
+      <img src="lomex3.jpg" alt="Image 3">
+      <p class="caption">Lomex (1967)</p>
+    </div>
+    <div class="photo-item">
+      <img src="lomex4.jpeg" alt="Image 4">
+      <p class="caption">Lomex (1967)</p>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <h2>Current exhibitions</h2>
+    <p style="padding:0%;">As of Feb 2025, the Metropolitan Museum of Art is hosting a special exhibition called 
+      <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank"><i>Materialized Space: The Architecture of Paul Rudolph</i></a>. 
+      Check it out at The Met Fifth Avenue in Gallery 913 till March 16, 2025. <br>
+      Below you will find Rudolph's catalogued work at the Met obtained from the Met API:
+    </p>
+    <div id="metData">
+      <h2 style="font-size: 20px"> Rudolph's Work at The Metropolitan Museum of Art, NYC</h2>
+      <p style="padding:0%"><i>Obtained from The Met API</i></p>
     </div>
   </section>
+
+  
 
   <!-- Footer Section -->
   <footer>
@@ -192,31 +237,38 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        //const objectId = [916400, 916399]; // Paul Rudolph's object ID
-        //const randomId = objectIds[Math.floor(Math.random() * objectIds.length)];
-        const apiUrl = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/916399';
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-            const container = document.getElementById("metData");
-            container.innerHTML = `
-                    <h2>Paul Rudolph & Brutalist Architecture Works at The Metropolitan Museum of Art, NYC</h2>
-                    <p><strong>Title:</strong> ${data.title || "Not available"}</p>
-                    <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
-                    <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
-                    <!-- <p><strong>Department:</strong> ${data.department || "Not available"}</p> -->
-                    <!-- <p><strong>Classification:</strong> ${data.classification || "Not available"}</p> -->
-                    <p><strong>Medium:</strong> ${data.medium || "Not available"}</p>
-                    <!-- <p><strong>Credit Line:</strong> ${data.creditLine || "Not available"}</p> -->
-                    <p><strong>Object URL:</strong> <a class="object-link" href="${data.objectURL}" target="_blank">View on The Met</a></p>
-            `;
-            })
-            .catch(error => {
-            console.error("Fetch error:", error);
-            document.getElementById("metData").innerHTML = `<p>Error fetching data.</p>`;
-            });
-        });
+      const objectIds = [916400, 916399]; // List of object IDs
+      const container = document.getElementById("metData");
+  
+      // Create an array of promises for all object fetch requests
+      const fetchData = async () => {
+          try {
+              const promises = objectIds.map(id => {
+                  const apiUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`;
+                  return fetch(apiUrl).then(response => response.json());
+              });
+  
+              // Wait for all requests to complete
+              const results = await Promise.all(promises);
+  
+              // Display all data
+              results.forEach(data => {
+                  container.innerHTML += `
+                      <h2>${data.title || "No title available"}</h2>
+                      <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
+                      <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
+                      <p><strong>Object URL:</strong> <a href="${data.objectURL}" target="_blank">View on The Met</a></p>
+                  `;
+              });
+          } catch (error) {
+              console.error("Fetch error:", error);
+              container.innerHTML = "<p>Error fetching data.</p>";
+          }
+      };
+  
+      fetchData();
+  });
+  
   </script>
 </body>
 </html>
