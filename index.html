@@ -107,8 +107,6 @@
 
 
     @media (max-width: 768px) {
-      section { flex: 1 0; }
-      blockquote { flex: 0 1; }
       .photo-grid {
         grid-template-columns: repeat(1, 1fr); /* 1 image per row */
       }
@@ -119,14 +117,12 @@
     }
 
     @media (max-width: 480px) {
-      section { flex: 1 0; }
-      blockquote { flex: 0 1; }
       .photo-grid {
         grid-template-columns: 1fr; /* 1 image per row */
       }
     
       .photo-grid img {
-        width: 95%;
+        width: 90%;
         height: auto;
       }
     }
