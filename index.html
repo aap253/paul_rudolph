@@ -73,41 +73,97 @@
     /* Photogrid */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 images per row */
-      gap: 15px; /* Space between images */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 15px; 
       padding: 1%;
       margin-bottom: 5px;
     }
-    
+
     .photo-item {
-      text-align: center; /* Center the text */
-    }
-    
-    .photo-grid img {
-      width: 450px; /* Make sure the image fills its container */
-      height: 300px; /* Maintain aspect ratio */
-      object-fit: cover; /* Crop if necessary */
-      border-radius: 5px;
-    }
-    
-    .caption {
-      font-size: 14px;
-      color: #555; /* Light gray for caption text */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px; 
     }
 
-    @media (min-width: 768px) {
+    .photo-grid img {
+      width: 600px; 
+      height: 400px; 
+      object-fit: cover; 
+      border-radius: 5px;
+      align-items: center;
+    }
+
+    .caption {
+      font-size: 14px;
+      color: #000000; /* Light gray for caption text */
+      text-align: center; /* Center the caption text */
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 768px) {
       section { flex: 1 0; }
       blockquote { flex: 0 1; }
+      .photo-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 image per row */
+      }
+      .photo-grid img {
+        width: 95%;
+        height: auto;
+      }
     }
 
     @media (max-width: 480px) {
+      section { flex: 1 0; }
+      blockquote { flex: 0 1; }
       .photo-grid {
         grid-template-columns: 1fr; /* 1 image per row */
       }
     
       .photo-grid img {
-        width: 100%; /* Ensure the image takes up full width */
+        width: 95%;
+        height: auto;
       }
+    }
+
+    /* Reviews */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Define column structure */
+      grid-template-rows: repeat(3, auto); /* Define row structure */
+      gap: 20px;
+      padding: 20px;
+      margin: 20px;
+      box-sizing: border-box;
+    }
+
+    .review {
+      background-color: #f8f8f8;
+      padding: 15px;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: subgrid; /* Inherit column structure from parent */
+      grid-template-rows: subgrid; /* Inherit row structure from parent */
+      gap: 10px;
+      border: 2px solid #ccc
+    }
+
+    .review h3 {
+      margin-top: 0;
+    }
+
+    .review p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .review .author {
+      display: block;
+      margin-top: 130px;
+      font-style: italic;
+      text-align: right;
     }
     
   </style>
@@ -149,11 +205,6 @@
       </p>
       <p style="padding:0%;">Today, SoHo and surrounding areas, which would have been drastically altered or erased, thrive as cultural and commercial hubs, standing as a testament to the successful resistance against the expressway’s construction.
       </p>
-      <blockquote>
-        <p><i>"The architects, planners—and businessmen–are seized with dreams of order, and they have become fascinated with scale models and bird’s-eye views. This is a vicarious way to deal 
-          with reality, and it is, unhappily, symptomatic of a design philosophy now dominant: buildings come first, for the goal is to remake the city to fit an abstract concept of what, logically, 
-          it should be."</i> – Jane Jacobs (1916-2006), urban activist</p>
-      </blockquote>
     </section>
 
     <!-- Youtube Video Section -->
@@ -161,8 +212,8 @@
        <h2>Critique of LOMEX</h2>
        <p style="margin-bottom: 2%; padding: 0%;">Daan van der Zwaag, a Cornell Tech student, critiques Rudolph's LOMEX proposal</p>
       <iframe
-          width="900" 
-          height="420" 
+          width="600" 
+          height="350" 
           src="https://www.youtube.com/embed/YxGJbSFrU2Q?start=1047" 
           title="YouTube video player" 
           frameborder="0"
@@ -174,7 +225,7 @@
 
   <section>
   <h2 style="margin-bottom: 0px"><strong>Image Gallery</strong></h2>
-  <p class="caption"; style="padding-left:0% ;padding-top:0%; padding-bottom:0%">Images taken from: <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank">Paul Rudolph's Wikipedia</a>
+  <p style="padding-left:0% ;padding-top:0%; padding-bottom:0%">Images taken from: <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank">Paul Rudolph's Wikipedia</a>
   </p>
   <div class="photo-grid">
     <div class="photo-item">
@@ -191,7 +242,7 @@
     </div>
     <div class="photo-item">
       <img src="nc.jpg" alt="Image 4">
-      <p class="caption">Burroughs Wellcome headquarters (1972–2021), Research Triangle Park, North Carolina</p>
+      <p class="caption">Burroughs Wellcome headquarters, NC (1972–2021)</p>
     </div>
   </div>
 
@@ -213,19 +264,50 @@
       <p class="caption">Lomex (1967)</p>
     </div>
   </div>
+  <blockquote style="padding:0%">
+    <p><i>"Architecture is a personal effort, and the fewer people coming between you and your work the better. … This is a very real problem, and 
+      you can only stretch one man so far. The heart can fall right out of a building during the production of working drawings, and sometimes you 
+      would not even recognize your own building unless you followed it through."</i> – Paul Rudolph</p>
+  </blockquote>
 </section>
 
   <section>
-    <h2>Current exhibitions</h2>
+    <h2>Current Exhibitions</h2>
     <p style="padding:0%;">As of Feb 2025, the Metropolitan Museum of Art is hosting a special exhibition called 
       <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank"><i>Materialized Space: The Architecture of Paul Rudolph</i></a>. 
       Check it out at The Met Fifth Avenue in Gallery 913 till March 16, 2025. <br>
-      Below you will find Rudolph's catalogued work at the Met obtained from the Met API:
+      Below you will find handful of Rudolph's catalogued work as well as modernist architecture at the Met obtained from the Met API:
     </p>
+
     <div id="metData">
-      <h2 style="font-size: 20px"> Rudolph's Work at The Metropolitan Museum of Art, NYC</h2>
-      <p style="padding:0%"><i>Obtained from The Met API</i></p>
+      <h2 style="font-size: 20px"> Paul Rudolph and Modernist Architecture at The Metropolitan Museum of Art, NYC</h2>
+      <div id="metObject"></div>
+      <button id="nextButton">Next</button>
     </div>
+  </section>
+
+  <section>
+    <h2>Influences, Parallels, and Legacy of Paul Rudolph</h2>
+  
+    <div class="reviews">
+      <div class="review">
+        <h3><i>Metropolis</i> (1927)</h3>
+        <p>Some of the cinematrography and architecture in Metropolis are reminiscent of Rudolph's vision for LOMEX.</p>
+        <span class="author">Directed by Fritz Lang</span>
+      </div>
+      <div class="review">
+        <h3><i>The Fountainhead </i> (1943)</h3>
+        <p>Some say Rudolph is reminiscent of Howard Roark, the arrogant architect-protagonist in The Fountainhead.</p>
+        <span class="author">Written by Ayn Rand</span>
+      </div>
+      <div class="review">
+        <h3><i>The Brutalist </i>(2024)</h3>
+        <p>Some have espoused that the protagnist of Brady Corbet's <i>The Brutalist</i> (2024) is an amalgamation of
+        modernist architects like Paul Rudolph, Louis Kahn, and Marcel Breuer.</p>
+        <span class="author">Directed by Brady Corbet</span>
+      </div>
+    </div>
+  
   </section>
 
   
@@ -237,37 +319,55 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const objectIds = [916400, 916399]; // List of object IDs
-      const container = document.getElementById("metData");
-  
-      // Create an array of promises for all object fetch requests
+      const objectIds = [916400, 916399, 742937, 272559, 487119, 486636, 274811, 274804, 269442, 706805, 491710, 491711, 481693, 491713, 491712, 265447, 629168, 751426, 283720, 751428, 904602, 274806, 274798, 816148, 823325, 284749, 706808, 272030, 285481, 489156, 706806, 493250, 679844, 436575, 490215, 486818, 312429, 492333];
+      const container = document.getElementById("metObject");
+      const nextButton = document.getElementById("nextButton");
+      let currentIndex = 0;
+      let metObjects = [];
+
+      // Fetch all objects from the Met API
       const fetchData = async () => {
           try {
               const promises = objectIds.map(id => {
                   const apiUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`;
                   return fetch(apiUrl).then(response => response.json());
               });
-  
+
               // Wait for all requests to complete
-              const results = await Promise.all(promises);
-  
-              // Display all data
-              results.forEach(data => {
-                  container.innerHTML += `
-                      <h2>${data.title || "No title available"}</h2>
-                      <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
-                      <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
-                      <p><strong>Object URL:</strong> <a href="${data.objectURL}" target="_blank">View on The Met</a></p>
-                  `;
-              });
+              metObjects = await Promise.all(promises);
+
+              // Display the first object
+              if (metObjects.length > 0) {
+                  displayObject(currentIndex);
+              } else {
+                  container.innerHTML = "<p>No data available.</p>";
+              }
           } catch (error) {
               console.error("Fetch error:", error);
               container.innerHTML = "<p>Error fetching data.</p>";
           }
       };
-  
+
+      // Function to display an object
+      const displayObject = (index) => {
+          const data = metObjects[index];
+
+          container.innerHTML = `
+              <h2>${data.title || "No title available"}</h2>
+              <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
+              <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
+              <p><strong>Object URL:</strong> <a href="${data.objectURL}" target="_blank">View on The Met</a></p>
+          `;
+      };
+
+      // Handle "Next" button click
+      nextButton.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % metObjects.length; // Loop back after the last item
+          displayObject(currentIndex);
+      });
+
       fetchData();
-  });
+    });
   
   </script>
 </body>
