@@ -1,167 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The World of Ang Lee</title>
-    <style>
-        img {
-            width: 100%;
-            max-width: 1512px;
-            height:auto;
-        }
-        header {
-            color: #333;
-            font-family: 'Times New Roman', sans-serif;
-            margin-top: 20px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-        main {
-            display: flex;
-            flex-wrap: wrap; /* allows content to wrap on small screens */
-            margin: 20px;
-          }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The World of Paul Rudolph</title>
+  <style>
+    img {
+      width: 100%;
+      max-width: 1512px;
+      height: auto;
+    }
+    header {
+      color: #333;
+      font-family: 'Times New Roman', sans-serif;
+      margin-top: 20px;
+      padding: 1%;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    main, aside, article {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1%;
+    }
 
-        aside {
-            display: flex;
-            flex-wrap: wrap; /* allows content to wrap on small screens */
-            margin: 20px;
-          }
+    section, blockquote {
+      box-sizing: border-box;
+      padding: 20px;
+      flex: 1 1 300px;
+      min-width: 500px;
+    }
 
-        /* Articles will take full width on small screens */
-        section, blockquote {
-            box-sizing: border-box;
-            padding: 10px;
-            flex: 1 1 300px; /* Grow and shrink with a minimum width */
-            min-width: 300px; /* Ensures that columns don't shrink below 300px */
-        }
+    @media (min-width: 768px) {
+      section { flex: 1 0; }
+      blockquote { flex: 0 1; }
+    }
 
-        @media (min-width: 768px) {
-            section {
-              flex: 2 1 0;
-            }
-            blockquote {
-              flex: 1 1 0;
-            }
-          }
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-        body, html {
-            margin: 5;
-            padding: 0;
-            overflow-x: hidden;
-          }
+    /* Styling for Met API Data */
+    .reviews {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Define rows that child grids can inherit via subgrid */
+        grid-auto-rows: minmax(100px, auto);
+        gap: 20px;
+        padding: 20px;
+        margin: 20px;
+        box-sizing: border-box;
+      }
+      .review {
+        background-color: #f8f8f8;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: grid;
+        grid-template-rows: subgrid;
+        gap: 10px;
+      }
+      .review h3 {
+        padding: 10px;
+        margin-top: 0;
+      }
+      .review p {
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .review .author {
+        display: block;
+        margin-top: 65px;
+        font-style: italic;
+        text-align: right;
+      }
 
-          .reviews {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            grid-auto-rows: minmax(100px, auto);
-            gap: 20px;
-            padding: 20px;
-            margin: 20px;
-            box-sizing: border-box;
-          }
-          .review {
-            background-color: #f8f8f8;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-rows: subgrid;
-            gap: 10px;
-          }
-          .review h3 {
-            margin-top: 0;
-          }
-          .review p {
-            font-size: 16px;
-            line-height: 1.5;
-          }
-          .review .author {
-            display: block;
-            margin-top: 70px;
-            font-style: italic;
-            text-align: right;
-          }
+    /* Styling for Met API Data */
+    #metData {
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      width: 50%;
+      margin: 10px auto;
+      font-family: Arial, sans-serif;
+    }
+    #metData h2 {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    #metData p {
+      font-size: 10px;
+      line-height: 0.5;
+      color: #444;
+    }
+    #metData strong { color: #222; }
+    .object-link {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .object-link:hover { text-decoration: underline; }
+  </style>
 
-    </style>
+
 </head>
 <body>
-    <header>
-        <img src="ang_lee_headshot.jpg" alt="Ang Lee captured by Mike McGregor">
-        <h1><strong>Welcome to a fanpage dedicated to Ang Lee!</strong></h1>
-        <h2>Discover his lasting mark on modern cinema as an iconoclastic director.</h2>
-    </header>
+  <header>
+    <img src="paul_rudolph.png" alt="Paul Rudolph, architect">
+    <h1><strong>Welcome to a fanpage dedicated to Paul Rudolph!</strong></h1>
+    <h2>Discover how Paul Rudolph redefined modernism with his bold, iconoclastic approach.</h2>
+  </header>
 
-    <main>
-        <article>
-        <p>Ang Lee, born on October 23, 1954, in Taiwan, is a groundbreaking director. With blockbusters like <i>Sense and Sensibility</i>,
+  <main>
+    <article>
+      <p>Ang Lee, born on October 23, 1954, in Taiwan, is a groundbreaking director. With blockbusters like <i>Sense and Sensibility</i>,
          the original <i>Hulk</i>, and <i>Life of Pi</i>, he has cemented himself as a prodigal filmmaker of modern cinema.</p>
-        <p>The movies I especially enjoy are the more "indie", "under-the-radar" ones like <i>The Ice Storm</i> and <i>Brokeback Mountain</i> that 
-        explore complex themes like identity and family dynamics in the public and private sphere. The latter film won him the Academy Award for Best Director.
-        Even though he is an international filmmaker, he has a profound understanding of American culture, which allows him to depict American stories with 
-        honest cadency and innovative camerawork. He has an uncanny way of blending technical skills with emotional depth.</p>
-        </article>
+      <p>The movies I especially enjoy are the more "indie", "under-the-radar" ones like <i>The Ice Storm</i> and <i>Brokeback Mountain</i> that 
+         explore complex themes like identity and family dynamics in the public and private sphere. The latter film won him the Academy Award for Best Director.
+         Even though he is an international filmmaker, he has a profound understanding of American culture, which allows him to depict American stories with 
+         honest cadency and innovative camerawork. He has an uncanny way of blending technical skills with emotional depth.</p>
+      </article>
 
-        <section>
-            <h3>Magnum Opus?</h3>
-            <p>According to me, Lee's masterpiece is <i>Lust, Caution</i>, an adaption of Eileen Chang's poignant espionage novel set 
-            during the Japanese occupation of China. It stars Tang Wei and Tony Leung, novice actors who quickly grew to prominence. 
-            Every time I think about this movie, the background score, Wong Chia Chi's Theme, haunts me. Attempting to pigeonhole Lee is 
-            an atrocious crime - his work spans multiude of genres and cultures. Even the renowned film critic, Roger Ebert, struggled to 
-            find the connection in Lee's filmography:</p>
-        </section>
-
-         <blockquote>
-            <p><i>"Failing to find the connecting link between such Ang Lee films as “Sense And Sensibility,” “Brokeback Mountain” and “Hulk,” 
-                I was quickly corrected by readers who said, obviously, all his films are about people trying to realize their essential natures 
-                despite the constraints of society. Readers, you were right."</i> – Roger Ebert</p>
-        </blockquote>
-
-        <aside>
-            <h2>Featured Clip</h2>
-            <p>Check out this insightful interview:</p>
-            <!-- Standard YouTube embed using iframe -->
-            <iframe 
-              width="560" 
-              height="315" 
-              src="https://www.youtube.com/embed/LkRqusCtfLI"  
-              title="YouTube video player" 
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-        </aside>
-          
-    </main>
-
-    <!-- New Review List Section -->
-    <section class="reviews">
-        <div class="review">
-            <h3>Stunning Visuals</h3>
-            <p>The film captures breathtaking imagery that truly immerses you in its world.</p>
-            <span class="author">- Film Enthusiast</span>
-        </div>
-            <div class="review">
-            <h3>Powerful Storytelling</h3>
-            <p>An emotional narrative that tugs at the heartstrings while provoking thought.</p>
-            <span class="author">- Cinema Lover</span>
-        </div>
-            <div class="review">
-            <h3>Masterful Direction</h3>
-            <p>Ang Lee’s direction is nothing short of genius—each frame is carefully composed.</p>
-            <span class="author">- Movie Critic</span>
-        </div>
+    <section>
+      <h3>Magnum Opus?</h3>
+      <p>According to me, Lee's masterpiece is <i>Lust, Caution</i>, an adaption of Eileen Chang's poignant espionage novel set 
+         during the Japanese occupation of China. It stars Tang Wei and Tony Leung, novice actors who quickly grew to prominence. 
+         Every time I think about this movie, the background score, Wong Chia Chi's Theme, haunts me. Attempting to pigeonhole Lee is 
+         an atrocious crime - his work spans multiude of genres and cultures. Even the renowned film critic, Roger Ebert, struggled to 
+         find the connection in Lee's filmography:</p>
     </section>
 
-    <div id="myElement"></div>
+    <blockquote>
+      <p><i>"Failing to find the connecting link between such Ang Lee films as “Sense And Sensibility,” “Brokeback Mountain” and “Hulk,” 
+         I was quickly corrected by readers who said, obviously, all his films are about people trying to realize their essential natures 
+         despite the constraints of society. Readers, you were right."</i> – Roger Ebert</p>
+    </blockquote>
 
-    <footer>
-        <p>© 2025 Ang Lee Fanpage. All rights reserved.</p>
-    </footer>
+    <!-- Youtube Video Section -->
+    <aside>
+       <h2 style="margin-bottom: 20px;">Featured Clip</h2>
+      <p>Check out this insightful interview:</p>
+      <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/78hV6mapXnE"  
+        title="YouTube video player" 
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </aside>
+  </main>
 
+  <div id="metData">
+    <h2>Featured Artwork from The Met</h2>
+    <p>Loading artwork data...</p>
+  </div>
+
+  <!-- Review List Section -->
+  <section class="reviews">
+    <div class="review">
+      <h3>Stunning Visuals</h3>
+      <p>The film captures breathtaking imagery that truly immerses you in its world.</p>
+      <span class="author">- Film Enthusiast</span>
+    </div>
+    <div class="review">
+      <h3>Powerful Storytelling</h3>
+      <p>An emotional narrative that tugs at the heartstrings while provoking thought.</p>
+      <span class="author">- Cinema Lover</span>
+    </div>
+    <div class="review">
+      <h3>Masterful Direction</h3>
+      <p>Ang Lee’s direction is nothing short of genius—each frame is carefully composed.</p>
+      <span class="author">- Movie Critic</span>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Paul Rudolph Fanpage. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        //const objectId = [916400, 916399]; // Paul Rudolph's object ID
+        //const randomId = objectIds[Math.floor(Math.random() * objectIds.length)];
+        const apiUrl = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/916399';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+            const container = document.getElementById("metData");
+            container.innerHTML = `
+                    <h2>Paul Rudolph & Brutalist Architecture Works at The Metropolitan Museum of Art, NYC</h2>
+                    <p><strong>Title:</strong> ${data.title || "Not available"}</p>
+                    <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
+                    <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
+                    <!-- <p><strong>Department:</strong> ${data.department || "Not available"}</p> -->
+                    <!-- <p><strong>Classification:</strong> ${data.classification || "Not available"}</p> -->
+                    <p><strong>Medium:</strong> ${data.medium || "Not available"}</p>
+                    <!-- <p><strong>Credit Line:</strong> ${data.creditLine || "Not available"}</p> -->
+                    <p><strong>Object URL:</strong> <a class="object-link" href="${data.objectURL}" target="_blank">View on The Met</a></p>
+            `;
+            })
+            .catch(error => {
+            console.error("Fetch error:", error);
+            document.getElementById("metData").innerHTML = `<p>Error fetching data.</p>`;
+            });
+        });
+  </script>
 </body>
 </html>
