@@ -176,57 +176,57 @@
     }
 
     @media (max-width: 375px) {
-      body, html {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  header, main, section, article, aside {
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  img, iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 5%;
+  }
+
+  .photo-grid img {
+    width: 100%;
+    height: auto;
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .review {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #metData {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
     
-      * {
-        max-width: 100%;
-        box-sizing: border-box;
-        word-wrap: break-word;
-      }
-    
-      header, main, section, article, aside {
-        width: 100%;
-        padding: 0 5%;
-      }
-    
-      img, iframe {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    
-      .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 5%;
-      }
-    
-      .photo-grid img {
-        width: 100%;
-        height: auto;
-      }
-    
-      .reviews {
-        grid-template-columns: 1fr;
-        padding: 10px;
-      }
-    
-      .review {
-        padding: 10px;
-        font-size: 14px;
-      }
-    
-      #metData {
-        width: 90%;
-        margin: 10px auto;
-      }
-    }
-        
     
   </style>
 
@@ -255,7 +255,7 @@
       </p>      
       </article>
 
-    <article>
+    <section>
       <h2>LOMEX</h2>
       <p style="padding:0%;">Collaborating with Robert Moses, Paul Rudolph envisioned an illustrious scope for Lower Manhattan Expressway (LOMEX) in the 1940s. He created detailed multi-level megastructures that 
         with a 10-lane elevated expressway connecting the Williamsburg and Manhattan Bridges to the Holland Tunnel. His goal was to integrate <i>residential</i>, <i>commercial</i>, and <i>transportation</i> elements. His radical proposal envisioned the expressway as part of a self-contained urban complex with pedestrian
@@ -267,10 +267,10 @@
       </p>
       <p style="padding:0%;">Today, SoHo and surrounding areas, which would have been drastically altered or erased, thrive as cultural and commercial hubs, standing as a testament to the successful resistance against the expressway’s construction.
       </p>
-    </article>
+    </section>
 
     <!-- Youtube Video Section -->
-    <article>
+    <section>
        <h2>Critique of LOMEX</h2>
        <p style="margin-bottom: 2%; padding: 0%;">Daan van der Zwaag, a Cornell Tech student, critiques Rudolph's LOMEX proposal</p>
       <iframe
@@ -282,7 +282,7 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
       </iframe>
-    </article>
+    </section>
   </main>
 
   <section>
@@ -333,9 +333,9 @@
   </blockquote>
 </section>
 
-  <section>
-    <h2>Current Exhibitions</h2>
-    <p style="padding:0%;">As of Feb 2025, the Metropolitan Museum of Art is hosting a special exhibition called 
+  <article>
+    <h2 style="padding: 1%;padding-bottom:0%">Current Exhibitions</h2>
+    <p style="padding-top: 0%">As of Feb 2025, the Metropolitan Museum of Art is hosting a special exhibition called 
       <a href="https://en.wikipedia.org/wiki/Paul_Rudolph_(architect)" target="_blank"><i>Materialized Space: The Architecture of Paul Rudolph</i></a>. 
       Check it out at The Met Fifth Avenue in Gallery 913 till March 16, 2025. <br>
       Below you will find handful of Rudolph's catalogued work as well as modernist architecture at the Met obtained from the Met API:
@@ -346,10 +346,10 @@
       <div id="metObject"></div>
       <button id="nextButton">Next</button>
     </div>
-  </section>
+  </article>
 
-  <section>
-    <h2>Influences, Parallels, and Legacy of Paul Rudolph</h2>
+  <article>
+    <h2 style="padding: 1%;padding-bottom:0%">Influences, Parallels, and Legacy of Paul Rudolph</h2>
   
     <div class="reviews">
       <div class="review">
@@ -370,7 +370,7 @@
       </div>
     </div>
   
-  </section>
+  </article>
 
   
 
