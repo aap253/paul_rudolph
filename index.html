@@ -175,66 +175,58 @@
       text-align: right;
     }
 
-    @media (max-width: 300px) {
+    @media (max-width: 375px) {
       body, html {
         overflow-x: hidden;
-      }
-    
-      header h1, header h2 {
-        font-size: 18px; /* Reduce header size for better fit */
-        text-align: center;
-      }
-    
-      p {
-        font-size: 14px; /* Adjust text for better readability */
-        padding: 5px;
-      }
-    
-      main, article, section, aside {
-        display: flex;
-        flex-direction: column; /* Stack elements */
-        align-items: center;
         width: 100%;
-        padding: 10px;
+        margin: 0;
+        padding: 0;
+      }
+    
+      * {
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+    
+      header, main, section, article, aside {
+        width: 100%;
+        padding: 0 5%;
+      }
+    
+      img, iframe {
+        width: 100%;
+        height: auto;
+        display: block;
       }
     
       .photo-grid {
-        grid-template-columns: 1fr; /* Ensure single column layout */
+        grid-template-columns: 1fr;
         gap: 10px;
+        padding: 5%;
       }
     
       .photo-grid img {
         width: 100%;
         height: auto;
-        max-width: 350px;
-        border-radius: 5px;
-      }
-    
-      iframe {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
       }
     
       .reviews {
-        grid-template-columns: 1fr; /* Ensure reviews stack properly */
+        grid-template-columns: 1fr;
         padding: 10px;
-        gap: 10px;
       }
     
       .review {
         padding: 10px;
+        font-size: 14px;
       }
     
       #metData {
         width: 90%;
+        margin: 10px auto;
       }
-    
-      footer p {
-        font-size: 12px;
-        text-align: center;
-      }
-    }    
+    }
+        
     
   </style>
 
@@ -271,7 +263,7 @@
       </p>
       <p style="padding:0%;">Rudolph’s version of LOMEX, though never built, reflected his broader architectural vision—layered, dynamic spaces that sought to humanize large-scale urban systems. His ambitious ideas for 
         multi-use, high-density environments, which complimented Moses’ often rigid, car-dominated approach to city planning. The project was heavily backed by Moses and received federal funding approval, but it faced growing
-        resistance from local residents, preservationists, and activists, including urbanist Jane Jacobs (see quote below.)
+        resistance from local residents, preservationists, and activists, including urbanist Jane Jacobs.
       </p>
       <p style="padding:0%;">Today, SoHo and surrounding areas, which would have been drastically altered or erased, thrive as cultural and commercial hubs, standing as a testament to the successful resistance against the expressway’s construction.
       </p>
