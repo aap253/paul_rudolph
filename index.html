@@ -136,72 +136,7 @@
         aspect-ratio: 16 / 9;
       }
     }
-
-    @media (max-width: 375px) {
-      body, html {
-        overflow-x: hidden;
-        width: 100%;
-      }
     
-      header {
-        text-align: center;
-        padding: 0 5%;
-      }
-    
-      img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-      }
-    
-      .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 5%;
-      }
-    
-      .photo-grid img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    
-      iframe {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
-    
-      main, aside, article {
-        flex-direction: column;
-        align-items: center;
-      }
-    
-      section, blockquote {
-        min-width: unset;
-        width: 100%;
-        padding: 10px;
-        flex: 1 1 auto;
-      }
-    
-      .reviews {
-        grid-template-columns: 1fr;
-        padding: 10px;
-      }
-    
-      .review {
-        padding: 10px;
-        font-size: 14px;
-      }
-    
-      #metData {
-        width: 90%;
-        margin: 10px auto;
-      }
-    }
-    
-
     /* Reviews */
     .reviews {
       display: grid;
@@ -239,6 +174,67 @@
       font-style: italic;
       text-align: right;
     }
+
+    @media (max-width: 375px) {
+      body, html {
+        overflow-x: hidden;
+      }
+    
+      header h1, header h2 {
+        font-size: 18px; /* Reduce header size for better fit */
+        text-align: center;
+      }
+    
+      p {
+        font-size: 14px; /* Adjust text for better readability */
+        padding: 5px;
+      }
+    
+      main, article, section, aside {
+        display: flex;
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+      }
+    
+      .photo-grid {
+        grid-template-columns: 1fr; /* Ensure single column layout */
+        gap: 10px;
+      }
+    
+      .photo-grid img {
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        border-radius: 5px;
+      }
+    
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+    
+      .reviews {
+        grid-template-columns: 1fr; /* Ensure reviews stack properly */
+        padding: 10px;
+        gap: 10px;
+      }
+    
+      .review {
+        padding: 10px;
+      }
+    
+      #metData {
+        width: 90%;
+      }
+    
+      footer p {
+        font-size: 12px;
+        text-align: center;
+      }
+    }    
     
   </style>
 
