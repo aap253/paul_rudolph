@@ -408,76 +408,75 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const objectIds = [916400, 916399, 742937, 272559, 487119, 486636, 274811, 274804, 269442, 706805, 491710, 491711, 481693, 491713, 491712, 265447, 629168, 751426, 283720, 751428, 904602, 274806, 274798, 816148, 823325, 284749, 706808, 272030, 285481, 489156, 706806, 493250, 679844, 436575, 490215, 486818, 312429, 492333];
+      // Met API and object display logic
+      const objectIds = [
+        916400, 916399, 742937, 272559, 487119, 486636, 274811, 274804,
+        269442, 706805, 491710, 491711, 481693, 491713, 491712, 265447,
+        629168, 751426, 283720, 751428, 904602, 274806, 274798, 816148,
+        823325, 284749, 706808, 272030, 285481, 489156, 706806, 493250,
+        679844, 436575, 490215, 486818, 312429, 492333
+      ];
+  
       const container = document.getElementById("metObject");
       const nextButton = document.getElementById("nextButton");
       let currentIndex = 0;
       let metObjects = [];
-
+  
       // Fetch all objects from the Met API
       const fetchData = async () => {
-          try {
-              const promises = objectIds.map(id => {
-                  const apiUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`;
-                  return fetch(apiUrl).then(response => response.json());
-              });
-
-              // Wait for all requests to complete
-              metObjects = await Promise.all(promises);
-
-              // Display the first object
-              if (metObjects.length > 0) {
-                  displayObject(currentIndex);
-              } else {
-                  container.innerHTML = "<p>No data available.</p>";
-              }
-          } catch (error) {
-              console.error("Fetch error:", error);
-              container.innerHTML = "<p>Error fetching data.</p>";
+        try {
+          const promises = objectIds.map(id => 
+            fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
+              .then(response => response.json())
+          );
+  
+          metObjects = await Promise.all(promises);
+  
+          if (metObjects.length > 0) {
+            displayObject(currentIndex);
+          } else {
+            container.innerHTML = "<p>No data available.</p>";
           }
+        } catch (error) {
+          console.error("Fetch error:", error);
+          container.innerHTML = "<p>Error fetching data.</p>";
+        }
       };
-
+  
       // Function to display an object
       const displayObject = (index) => {
-          const data = metObjects[index];
-
-          container.innerHTML = `
-              <h2>${data.title || "No title available"}</h2>
-              <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
-              <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
-              <p><strong>Object URL:</strong> <a href="${data.objectURL}" target="_blank">View on The Met</a></p>
-          `;
+        const data = metObjects[index];
+  
+        container.innerHTML = `
+          <h2>${data.title || "No title available"}</h2>
+          <p><strong>Artist:</strong> ${data.artistDisplayName || "Not available"}</p>
+          <p><strong>Date:</strong> ${data.objectDate || "Not available"}</p>
+          <p><strong>Object URL:</strong> <a href="${data.objectURL}" target="_blank">View on The Met</a></p>
+        `;
       };
-
+  
       // Handle "Next" button click
       nextButton.addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % metObjects.length; // Loop back after the last item
-          displayObject(currentIndex);
+        currentIndex = (currentIndex + 1) % metObjects.length;
+        displayObject(currentIndex);
       });
-
+  
+      // Start fetching data
       fetchData();
+  
+      // Blueprint effect logic
+      const blueprint = document.getElementById("blueprintEffect");
+      const containerElement = document.querySelector('.container');
+  
+      // Mouse movement event for blueprint effect
+      document.addEventListener("mousemove", (event) => {
+        const { left, top } = containerElement.getBoundingClientRect();
+        const x = event.clientX - left;
+        const y = event.clientY - top;
+  
+        blueprint.style.clipPath = `circle(150px at ${x}px ${y}px)`;
+      });
     });
-    </script>   
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const blueprint = document.getElementById("blueprintEffect");
-            const container = document.querySelector('.container');
-    
-            // Mouse movement event
-            document.addEventListener("mousemove", function(event) {
-                // Get the position of the mouse relative to the container
-                let rect = container.getBoundingClientRect();
-                let x = event.clientX - rect.left; // X relative to container
-                let y = event.clientY - rect.top;  // Y relative to container
-    
-                // Expanding the revealed area based on mouse movement inside the container
-                blueprint.style.clipPath = `circle(150px at ${x}px ${y}px)`;
-            });
-        });
-    </script>
-
+  </script>  
 </body>
 </html>
-
-
-....
