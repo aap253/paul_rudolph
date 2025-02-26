@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The World of Paul Rudolph</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     img {
-      display: block;
-      margin: auto;
       width: 100%;
-      max-width: 1512px;
       height: auto;
+      padding: 1%;
+      max-width: 1512px;
     }
     
     header {
@@ -125,7 +128,79 @@
         width: 90%;
         height: auto;
       }
+
+      iframe {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
     }
+
+    @media (max-width: 375px) {
+      body, html {
+        overflow-x: hidden;
+        width: 100%;
+      }
+    
+      header {
+        text-align: center;
+        padding: 0 5%;
+      }
+    
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 5%;
+      }
+    
+      .photo-grid img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    
+      iframe {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+    
+      main, aside, article {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      section, blockquote {
+        min-width: unset;
+        width: 100%;
+        padding: 10px;
+        flex: 1 1 auto;
+      }
+    
+      .reviews {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+    
+      .review {
+        padding: 10px;
+        font-size: 14px;
+      }
+    
+      #metData {
+        width: 90%;
+        margin: 10px auto;
+      }
+    }
+    
 
     /* Reviews */
     .reviews {
